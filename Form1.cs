@@ -121,14 +121,14 @@ class FiyatBulma
         String icecekUrunleri = "";
        
 
-        if (cb1.Checked) { toplamFiyat += (nu1.Value) * TKahveF; icecekUrunleri += $"/Türk.K:{nu1.Value}"; }
+        if (cb1.Checked) { toplamFiyat += (nu1.Value) * TKahveF; icecekUrunleri += $"/Turk.K:{nu1.Value}"; }
         if (cb2.Checked) { toplamFiyat += (nu2.Value) * SpersoF; icecekUrunleri += $"/sperso:{nu2.Value}"; }
         if (cb3.Checked) { toplamFiyat += (nu3.Value) * LatteF; icecekUrunleri += $"/Latte:{nu3.Value}"; }
         if (cb4.Checked) { toplamFiyat += (nu4.Value) * CapichoF; icecekUrunleri += $"/Capicho:{nu4.Value}"; }
         if (cb5.Checked) { toplamFiyat += (nu5.Value) * MochaF; icecekUrunleri += $"/Mocha:{nu5.Value}"; }
-        if (cb6.Checked) { toplamFiyat += (nu6.Value) * CayF; icecekUrunleri += $"/Çay:{nu6.Value}"; }
+        if (cb6.Checked) { toplamFiyat += (nu6.Value) * CayF; icecekUrunleri += $"/Cay:{nu6.Value}"; }
         if (cb7.Checked) { toplamFiyat += (nu7.Value) * AmericanoF; icecekUrunleri += $"/Americano:{nu7.Value}"; }
-        if (cb8.Checked) { toplamFiyat += (nu8.Value) * SMochaF; icecekUrunleri += $"/Soğuk Mocha:{nu8.Value}"; }
+        if (cb8.Checked) { toplamFiyat += (nu8.Value) * SMochaF; icecekUrunleri += $"/Soguk Mocha:{nu8.Value}"; }
         if (cb9.Checked) { toplamFiyat += (nu9.Value) * PortakalSuyuF; icecekUrunleri += $"/Portakal.S:{nu9.Value}"; }
         if (cb10.Checked) { toplamFiyat += (nu10.Value) * KolaF; icecekUrunleri += $"/Kola:{nu10.Value}"; }
         if (cb11.Checked) { toplamFiyat += (nu11.Value) * AyranF; icecekUrunleri += $"/Ayyran:{nu11.Value}"; }
@@ -218,20 +218,7 @@ class sqlCommandLar
 
     public static void exelCikar()
     {
-
-        /* MySqlConnection tunel = new MySqlConnection("Server=localhost; Database=marketapp_database; uid=root; pwd=Ali@2006");
-         try
-         {
-             MySqlDataAdapter adp = new MySqlDataAdapter("select * from scap", tunel);
-             DataTable dt = new DataTable();
-             adp.Fill(dt);
-             // string nm = SaveFileDialog.Fil
-             ExcelWorksheet worksheet = n
-         }*/
-         
-
-        Microsoft.Office.Interop.Excel.Application exelApp = new Microsoft.Office.Interop.Excel.Application();
-            
+         Microsoft.Office.Interop.Excel.Application exelApp = new Microsoft.Office.Interop.Excel.Application();
     }
 
 
