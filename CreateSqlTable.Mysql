@@ -1,0 +1,7 @@
+CREATE TABLE scap (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    Tarih DATE,
+    Icecek VARCHAR(100),
+    Yemek VARCHAR(100),
+    ToplamFiyat DECIMAL(10, 2)
+);
