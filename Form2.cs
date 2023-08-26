@@ -13,6 +13,7 @@ using MySql.Data.MySqlClient;
 using OfficeOpenXml;
 using System.IO;
 using static System.Windows.Forms.LinkLabel;
+using System.Data.SqlClient;
 
 namespace MarketApplication
 {
@@ -24,6 +25,29 @@ namespace MarketApplication
         }
         private void Form2_Load(object sender, EventArgs e)
         {
+            listele();
+        }
+        private void exportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new ExportHelper().Export(dataGridView1);
+        }
+
+        private void son1AyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                MySqlConnection tunel = new MySqlConnection("Server=localhost; Database=marketapp_database; uid=root; pwd=Ali@2006");
+
+                tunel.Open();
+                MySqlCommand cmd = new MySqlCommand("Delete from scap",tunel);
+                cmd.ExecuteNonQuery();
+                tunel.Close();
+            }
+            catch (Exception ex) { }
+        }
+
+        private void listele()
+        {
             MySqlConnection tunel = new MySqlConnection("Server=localhost; Database=marketapp_database; uid=root; pwd=Ali@2006");
             try
             {
@@ -34,11 +58,7 @@ namespace MarketApplication
                 tunel.Close();
 
             }
-            catch (Exception ex) {MessageBox.Show(ex.Message);}
-        }
-        private void exportToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            new ExportHelper().Export(dataGridView1);
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
     }
 }
