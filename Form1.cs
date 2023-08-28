@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -87,7 +87,11 @@ namespace MarketApplication
 
         private void databasExelÇıkarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            sqlCommandLar.exelCikar();
+            //sqlCommandLar.exelCikar();
+            Form3 CloseApp = new Form3();
+            this.Close();
+            CloseApp.Show();
+            CloseApp.Close();
         }
 
         private void numericUpDown18_ValueChanged(object sender, EventArgs e)
@@ -95,6 +99,7 @@ namespace MarketApplication
 
         private void numericUpDown19_ValueChanged(object sender, EventArgs e)
         {if (numericUpDown19.Value != 0) { checkBox19.Checked = true; } else { checkBox19.Checked = false; }}
+
     }
 }
 class FiyatBulma
