@@ -23,7 +23,7 @@ namespace SCAP
             StringBuilder headeLine = new StringBuilder();
 
             int controller = 0;
-            bool firstId = false;
+            string firstId = "0";
             bool brk1 = false;
             bool brk2 = false;
         
@@ -64,22 +64,26 @@ namespace SCAP
                             dateLine.Append(cell1.Value);
                             firstDone = true;
                             //MessageBox.Show(cell1.Value.ToString());
-                            
+
                             //Yarı Başarlı Code
-                            if (cl.ToString() == Convert.ToString(FoundID()))
+                            if (cl.ToString() == Convert.ToString(FoundID()) && firstId == "1")
                             {
                                 MessageBox.Show($"Tür biti{controller.ToString()}");
                                 controller++;
-                                break; brk1 = true;
+                                brk1 = true;
+                                break; 
                             }
+                            firstId = "1";
                         }
                         else
                         {
                             dateLine.Append(" | " + cell1.Value);
                         }
                         
+
                     }
                     lines.Add(dateLine.ToString());
+                    
 
 
                 }
@@ -99,7 +103,7 @@ namespace SCAP
             try
             {
                 tunel.Open();
-                MySqlCommand cmd = new MySqlCommand("SELECT MAX(ID) from scap",
+                MySqlCommand cmd = new MySqlCommand("SELECT MIN(ID) from scap",
                                                          tunel);
                 //cmd.ExecuteNonQuery();
                 object respoce = cmd.ExecuteScalar();
