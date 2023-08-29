@@ -31,7 +31,7 @@ namespace SCAP
             //-----For Get COL. COL is = (ID,Tarih,İçecek,Yemek,ToplamFiyat)
             foreach (DataGridViewColumn col in header)
             {
-                if(controller >0) { MessageBox.Show("Boş Tekrar"); break; }
+                if(controller >0) { break; }
                 if(brk2==true) { break; }
                 if (!firstDone)
                 {
@@ -68,7 +68,6 @@ namespace SCAP
                             //Yarı Başarlı Code
                             if (cl.ToString() == Convert.ToString(FoundID()) && firstId == "1")
                             {
-                                MessageBox.Show($"Tür biti{controller.ToString()}");
                                 controller++;
                                 brk1 = true;
                                 break; 
