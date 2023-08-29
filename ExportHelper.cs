@@ -31,6 +31,7 @@ namespace SCAP
             //-----For Get COL. COL is = (ID,Tarih,İçecek,Yemek,ToplamFiyat)
             foreach (DataGridViewColumn col in header)
             {
+                if(controller >0) { MessageBox.Show("Boş Tekrar"); break; }
                 if(brk2==true) { break; }
                 if (!firstDone)
                 {
@@ -46,9 +47,9 @@ namespace SCAP
                 foreach (DataGridViewRow row in dgv.Rows)
                 {
                     if (brk1 == true) { brk2 = true; break; }
-                    {
+                   
                         
-                    }
+                    
                     //MessageBox.Show(row.ToString());
                     StringBuilder dateLine = new StringBuilder();
                     firstDone = false;
@@ -56,21 +57,31 @@ namespace SCAP
                     string  cl = "";
                     foreach (DataGridViewCell cell1 in row.Cells)
                     {
+                        if (brk1 == true) break;
                         cl = Convert.ToString(cell1.Value);
                         if (!firstDone)
                         {
                             dateLine.Append(cell1.Value);
                             firstDone = true;
-                            //MessageBox.Show(cell1.Value.ToString());                            
+                            //MessageBox.Show(cell1.Value.ToString());
+                            
+                            //Yarı Başarlı Code
+                            if (cl.ToString() == Convert.ToString(FoundID()))
+                            {
+                                MessageBox.Show($"Tür biti{controller.ToString()}");
+                                controller++;
+                                break; brk1 = true;
+                            }
                         }
                         else
                         {
                             dateLine.Append(" | " + cell1.Value);
                         }
+                        
                     }
                     lines.Add(dateLine.ToString());
-                    
-                    if(cl  == Convert.ToString(FoundID())) { break; brk1 = true; }
+
+
                 }
             }
 
